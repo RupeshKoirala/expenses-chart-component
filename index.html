@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Expenses chart component</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <div class="heading">
+     <div class="left-info">
+        <p>My balance</p>
+        <p>$921.48</p>
+     </div>
+     <img src="images/logo.svg">
+    </div>
+
+    <div class="spending">
+      <p>Spending - Last 7 days </p>
+      <div class=spacing></div>
+      <div class="bar-chart">
+          <div class="mon week">
+            <div class="chart"></div>
+            <p>mon</p>
+          </div>
+          <div class="tue week">
+            <div class="chart"><</div>
+            <p>tue</p>
+          </div>
+          <div class="wed week">
+            <div class="chart"></div>
+            <p>wed</p>
+          </div>
+          <div class="thu week">
+            <div class="chart"></div>
+            <p>thu</p>
+          </div>
+          <div class="fri week">
+            <div class="chart"></div>
+            <p>fri</p>
+          </div>
+          <div class="sat week">
+            <div class="chart"></div>
+            <p>sat</p>
+          </div>
+          <div class="sun week">
+            <div class="chart"></div>
+            <p>sun</p>
+          </div>
+      </div>
+      
+      <hr size="3">
+      <div class="bottom-total">
+        <div class="total-month">
+          <p>Total this month</p>
+          <p>$478.33</p>
+        </div>
+        <div class="last-month">
+          <p>+2.4%</p>
+          <p>from last month</p>
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  
+
+
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Rupesh Koirala</a>.
+  <script>
+
+      const spendValue = [18.29, 33.66, 52.36, 31.07, 21.22, 38.05, 33.66]
+      const spentAmount = document.querySelector(".hidden");
+
+      const barGraphs = document.querySelectorAll(".chart");
+      barGraphs.forEach((item, index)=>{
+        const styles = getComputedStyle(document.documentElement); 
+        const value = `<span class="spent-amount">$${spendValue[index]}</span>`
+        
+    
+        item.addEventListener("mouseover", ()=>{
+            item.style.backgroundColor = styles.getPropertyValue("--cyan").trim();
+            item.innerHTML = value;
+        })
+        item.addEventListener("mouseout", ()=>{
+            item.style.backgroundColor = styles.getPropertyValue("--soft-red").trim();
+            item.innerHTML = "";
+        })
+      })
+      
+
+
+
+  </script>
+  </div>
+</body>
+</html>
